@@ -4,14 +4,13 @@
 import { useState, useEffect } from 'react';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { useDebouncedCallback } from 'use-debounce';
+import Link from 'next/link';
 import css from '../../../Home.module.css';
 
 import { fetchNotes } from '@/lib/api';
 
 import NoteList from '@/components/NoteList/NoteList';
 import Pagination from '@/components/Pagination/Pagination';
-import Modal from '@/components/Modal/Modal';
-import NoteForm from '@/components/NoteForm/NoteForm';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import Loader from '@/components/Loader/Loader';
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage';
@@ -22,8 +21,6 @@ interface NotesClientProps {
 
 export default function NotesClient({ tag }: NotesClientProps) {
   const [page, setPage] = useState<number>(1);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
   const [inputValue, setInputValue] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -70,7 +67,6 @@ export default function NotesClient({ tag }: NotesClientProps) {
           justifyContent: 'space-between',
         }}
       >
-        {}
         <SearchBox value={inputValue} onChange={handleSearchChange} />
 
         {!isLoading && !isError && totalPages > 1 ? (
@@ -79,9 +75,10 @@ export default function NotesClient({ tag }: NotesClientProps) {
           <div style={{ flex: 1 }} />
         )}
 
-        <button className={css.button || ''} onClick={() => setIsModalOpen(true)}>
+        {}
+        <Link href="/notes/action/create" className={css.button || ''}>
           Create note +
-        </button>
+        </Link>
       </header>
 
       <main className={css.content}>
@@ -104,11 +101,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
         )}
       </main>
 
-      {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
-          <NoteForm onCancel={() => setIsModalOpen(false)} />
-        </Modal>
-      )}
+      {}
     </div>
   );
 }
