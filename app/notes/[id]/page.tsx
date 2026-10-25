@@ -24,10 +24,10 @@ export async function generateMetadata({ params }: NoteDetailPageProps): Promise
       openGraph: {
         title: `${note.title} | NoteHub`,
         description: shortDescription,
-        url: `https://notehub.com{id}`,
+        url: `https://notehub.com/notes/${note.id}`,
         images: [
           {
-            url: 'https://goit.global',
+            url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
             width: 1200,
             height: 630,
             alt: `Detailed preview of note: ${note.title}`,

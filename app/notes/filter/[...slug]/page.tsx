@@ -24,7 +24,9 @@ export async function generateMetadata({ params }: NotesPageProps): Promise<Meta
     openGraph: {
       title: pageTitle,
       description: pageDescription,
-      url: `https://notehub.com{tagFromUrl}`,
+
+      url: `https://notehub.com/notes/filter/${tagFromUrl}`,
+
       images: [
         {
           url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',

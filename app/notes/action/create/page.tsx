@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     title: 'Create New Note | NoteHub',
     description:
       'Create a new personal note, set a category tag, and save it to your NoteHub account.',
-    url: 'https://notehub.com',
+    url: 'https://notehub.com/notes/action/create',
     images: [
       {
-        url: 'https://goit.global',
+        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
         width: 1200,
         height: 630,
         alt: 'NoteHub Create Note Workspace',
